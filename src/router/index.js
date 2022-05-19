@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import homePage from '@/components/homePage'
 import aboutusPage from '@/components/aboutus'
 import iptvPage from '@/components/iptv'
+import projectPage from '@/components/projects'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/iptv',
       name: 'iptvPage',
       component: iptvPage
+    },
+    {
+      path: '/projects',
+      name: 'projectPage',
+      component: projectPage
     }
   ]
 })

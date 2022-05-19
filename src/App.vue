@@ -11,28 +11,32 @@
   <body>
     <div id="app">
       <div class="">
-        <div class="row block1 text-white">
-          <div class="col">
-            Contact Us:
-            <img src="./assets/block1phone.png" alt="">
-            <a class="block1phonenumber" href="tel:+92302-3554482">
-              (+92)-302-3554482
-            </a>
-            <img src="./assets/block1whatsapp.png" alt="">
-            <a class="block1whatsapptxt">Whatsapp</a>
-          </div>
-          <div class="col">
-            <div class="nav-item nav-link float-end text-white ml-auto">
-              <a class="block1emailtxt m-r-0" href="mailto:info@mercurysols.org">
-                info@mercurysols.org
+        <div class="block1 text-white">
+          <div class="row block1subContainer mx-auto">
+            <div class="col d-flex align-items-center">
+              <span>Contact Us:</span>
+              <img src="./assets/block1phone.png" alt="">
+              <a class="block1phonenumber" href="tel:+92302-3554482">
+                (+92)-302-3554482
               </a>
-              <img src="./assets/block1email.png" alt="" class="block1emailimg m-l-0" />
+              <img src="./assets/block1whatsapp.png" alt="">
+              <a class="block1whatsapptxt">Whatsapp</a>
+            </div>
+            <div class="col">
+              <div class="nav-item nav-link float-end text-white ml-auto">
+                <a class="block1emailtxt m-r-0" href="mailto:info@mercurysols.org">
+                  info@mercurysols.org
+                </a>
+                <img src="./assets/block1email.png" alt="" class="block1emailimg m-l-0" />
+              </div>
             </div>
           </div>
         </div>
         <nav class="navbar navbar-expand-lg block2 text-white">
           <div class="m-0 p-4 ">
-            <img src="./assets/block2logo.png" alt="" class="block2img" />
+            <router-link to="/">
+              <img src="./assets/block2logo.png" alt="" class="block2img" />
+            </router-link>
           </div>
           <button class="navbar-toggler border border-2 border-dark w-10" type="button" data-toggle="collapse"
             data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
@@ -55,7 +59,7 @@
               </div>
               <div class="nav-item nav-link text-white ml-2 mdl-0">
                 <div class="m-l-3">
-                  <router-link to="/" class="anchorStyles"> Projects</router-link>
+                  <router-link to="/projects" class="anchorStyles"> Projects</router-link>
                 </div>
 
               </div>
@@ -88,7 +92,7 @@
                   </div>
                   <div class="block2signIn   text-center p-b-1">
                     <router-link to="/" class="anchorStyles2">
-                       SignIn</router-link>
+                      SignIn</router-link>
                   </div>
                 </div>
               </div>
@@ -128,6 +132,12 @@ export default {
   background: #14264a;
   border: solid #000000;
   box-sizing: border-box;
+  text-align: initial;
+}
+
+.block1subContainer {
+  width: 97%;
+
 }
 
 .block1Contact {
