@@ -4,12 +4,15 @@ import homePage from '@/components/homePage'
 import aboutusPage from '@/components/aboutus'
 import iptvPage from '@/components/iptv'
 import projectPage from '@/components/projects'
+import careerPage from '@/components/career'
+import servicesPage from '@/components/services'
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
 // Import Bootstrap and BootstrapVue CSS files (order is important)
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+// import { component } from 'vue/types/umd'
 Vue.use(Router)
 /* eslint-disable no-new */
 // The Vue build version to load with the `import` command
@@ -42,6 +45,16 @@ export default new Router({
       path: '/projects',
       name: 'projectPage',
       component: projectPage
+    },
+    {
+      path: '/career',
+      name: 'careerPage',
+      component: careerPage
+    },
+    {
+      path: '/services',
+      name: 'servicesPage',
+      component: servicesPage
     }
   ]
 })

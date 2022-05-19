@@ -72,7 +72,14 @@
               <div class="nav-item nav-link text-white ml-2 mdl-0 ">
                 <div class="m-l-3">
 
-                  <router-link to="/" class="anchorStyles"> Career</router-link>
+                  <router-link to="/career" class="anchorStyles"> Career</router-link>
+                </div>
+
+              </div>
+              <div class="nav-item nav-link text-white ml-2 mdl-0 ">
+                <div class="m-l-3">
+
+                  <router-link to="/services" class="anchorStyles"> Services</router-link>
                 </div>
 
               </div>
