@@ -1,5 +1,12 @@
 <template>
     <div class="">
+        <div class="" v-if="responseAvailable == false">
+            <div class="row">
+                <div class="col">
+                    Loading the Projects
+                </div>
+            </div>
+        </div>
         <div class="projectblock1">
             <div class="row m-5">
                 <div class="col">
@@ -31,34 +38,34 @@
                 </div>
             </div>
         </div>
-        <div class="">
+        <div class="" v-if="responseAvailable == true">
             <div class="row m-0 textalign">
-                <div class="col-6 projectblock2 ">
+                <div class="col-6 projectblock2" v-for="project in result" :value="project.value" :key="project.value">
                     <div class="row pt-5 pb-3">
                         <div class="col heading1 mx-auto">
-                            Category
+                            {{ project.projecttype }}
                         </div>
                     </div>
                     <div class="row pb-3">
                         <div class="col heading2">
-                            <h1>Project Name</h1>
+                            <h1>{{ project.title }}</h1>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                        <router-link to="">
-                            <button class="buttonstyle textalign">
-                            <div class="">
-                                Learn More
-                            </div>
-                            </button>
-                        </router-link>
+                            <router-link to="">
+                                <button class="buttonstyle textalign">
+                                    <div class="">
+                                        Learn More
+                                    </div>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6 projectimgblock">
                             <div class="projectimg">
-                                <img src="../assets/projectpage.png" alt="">
+                                <img :src="`${project.images}`" alt="">
                             </div>
                         </div>
                     </div>
@@ -76,11 +83,11 @@
                         </div>
                     </div>
                     <div class="row">
-                         <router-link to="">
+                        <router-link to="">
                             <button class="buttonstyle textalign">
-                            <div class="">
-                                Learn More
-                            </div>
+                                <div class="">
+                                    Learn More
+                                </div>
                             </button>
                         </router-link>
                     </div>
@@ -232,9 +239,32 @@ export default {
     data() {
         return {
             errors: [],
+            result: "",
+            responseAvailable: false,
 
         };
     },
+    mounted: function () {
+        this.getProjects();
+    },
+    methods: {
+        getProjects() {
+            this.axios.get('http://127.0.0.1:8000/ProjectAPI/')
+                .then((response) => {
+                    if (response.statusText = "OK") {
+                        console.log(response.data)
+                        this.responseAvailable = true
+                        this.result = response.data;
+                        // return response.json()
+                    } else {
+                        console.log("Server Returned " + response.status + ":" + response.statusText);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+    }
 };
 
 </script>
@@ -266,22 +296,25 @@ export default {
 .projectblock2 {
     background: #FF6D6B;
 }
-.textalign{
+
+.textalign {
     text-align: center;
     color: white;
 }
-.projectimgblock{
 
-}
-.projectimg{
+.projectimgblock {}
+
+.projectimg {
     max-width: 100%;
 }
-.buttonstyle{
+
+.buttonstyle {
     background: #FF6D6B;
-    border-style:solid;
+    border-style: solid;
     border-color: #FFFFFF;
-    border-radius: 4px ;
+    border-radius: 4px;
 }
+
 .block2 {
     /* position: absolute;
 width: 100%;

@@ -15,19 +15,33 @@
           <div class="row block1subContainer mx-auto">
             <div class="col d-flex align-items-center">
               <span>Contact Us:</span>
-              <img src="./assets/block1phone.png" alt="">
-              <a class="block1phonenumber" href="tel:+92302-3554482">
-                (+92)-302-3554482
-              </a>
-              <img src="./assets/block1whatsapp.png" alt="">
-              <a class="block1whatsapptxt">Whatsapp</a>
+              <div class="mx-3">
+                <a class="block1phonenumber d-flex align-items-center" href="tel:+92302-3554482">
+                  <div class="mr-2">
+                    <img src="./assets/block1phone.png" alt="">
+                  </div>
+                  <span>(+92)-302-3554482</span>
+                </a>
+              </div>
+              <div class="line"></div>
+              <div class="mx-3">
+                <a class="block1whatsapptxt d-flex align-items-center">
+                  <div class="mr-2">
+                    <img src="./assets/block1whatsapp.png" alt="">
+                  </div>
+                  <span>Whatsapp</span>
+                </a>
+              </div>
             </div>
             <div class="col">
-              <div class="nav-item nav-link float-end text-white ml-auto">
-                <a class="block1emailtxt m-r-0" href="mailto:info@mercurysols.org">
-                  info@mercurysols.org
+              <div class=" nav-item nav-link float-end text-white ml-auto">
+                <a class="block1emailtxt m-r-0 d-flex align-items-center" href="mailto:info@mercurysols.org">
+                  <div class="mr-2">
+                    <img src="./assets/block1email.png" alt="" class="block1emailimg m-l-0" />
+                  </div>
+                  <span>info@mercurysols.org</span>
                 </a>
-                <img src="./assets/block1email.png" alt="" class="block1emailimg m-l-0" />
+                
               </div>
             </div>
           </div>
@@ -84,9 +98,9 @@
 
               </div>
               <div class="nav-item nav-link float-end text-white ml-0 ml-lg-auto">
-                <div class="requestblock ">
+                <div class="requestblock mr-3">
                   <img src="./assets/block2request.png" alt="" class="block2requestimg" />
-                  <div class="block2requesttxt">
+                  <div class="block2requesttxt ml-2">
                     <router-link to="/" class="anchorStyles">
                       Request A Quote</router-link>
                   </div>
@@ -196,15 +210,8 @@ export default {
 }
 
 .line {
-  position: absolute;
-  width: 26.31px;
-  height: 0px;
-  margin-left: 290px;
-  margin-top: 13px;
-  margin-bottom: 2.7px;
-
+  height: 26.31px;
   border: 2px solid #ffffff;
-  transform: rotate(91deg);
 }
 
 .block1whatsapp {
