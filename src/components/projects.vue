@@ -1,12 +1,5 @@
 <template>
     <div class="">
-        <div class="" v-if="responseAvailable == false">
-            <div class="row">
-                <div class="col">
-                    Loading the Projects
-                </div>
-            </div>
-        </div>
         <div class="projectblock1">
             <div class="row m-5">
                 <div class="col">
@@ -38,9 +31,16 @@
                 </div>
             </div>
         </div>
+        <div class="" v-if="responseAvailable == false">
+            <div class="row">
+                <div class="col">
+                    Loading the Projects
+                </div>
+            </div>
+        </div>
         <div class="" v-if="responseAvailable == true">
             <div class="row m-0 textalign">
-                <div class="col-6 projectblock2" v-for="project in result" :value="project.value" :key="project.value">
+                <div class="col-6 projectblock2" v-for="project in result" :value="project.value" v-bind:key="project.id">
                     <div class="row pt-5 pb-3">
                         <div class="col heading1 mx-auto">
                             {{ project.projecttype }}
@@ -64,8 +64,9 @@
                     </div>
                     <div class="row">
                         <div class="col-6 projectimgblock">
-                            <div class="projectimg">
-                                <img :src="`${project.images}`" alt="">
+                            <!-- '../'+`${image.image}` -->
+                            <div class="projectimg"  v-for="image in project.images" :key="image.image">
+                                <img v-bind:src="require('../assets'+`${image.image}`)" alt="">
                             </div>
                         </div>
                     </div>
@@ -264,6 +265,7 @@ export default {
                     console.log(error)
                 })
         }
+       
     }
 };
 

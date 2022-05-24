@@ -60,11 +60,12 @@
                             </div>
                         </div>
                         <div class="m-0">
-                            <div class="postsection m-3 ">
+                            <div class="postsection m-3 " v-for="job in result" :value="job.value" v-bind:key="job.id">
                                 <div class="row pl-5">
-                                    Node.Js Developer
+                                    Title: {{ job.title }}
                                 </div>
-                                <div class="row pl-5">2-5 years - Experience</div>
+                                <div class="row pl-5" v-for="experience in job.experience" :key="experience.name">
+                                    Experience Required:{{ experience.name }}</div>
                                 <div class="row pl-5">
                                     <div class="col">
                                         <router-link to="">
@@ -78,29 +79,39 @@
                                 </div>
                                 <div class="row pl-5">
                                     <div class="col">
-                                        <li>Knows and have implemented serverless architecture</li>
-                                        <li> Worked with NoSQL and AWS DynamoDB (optional)</li>
-                                        <li>Knows and implemented CI/CD</li>
+                                        <li v-for="technology in job.technology" :key="technology.name">
+                                            {{ technology.name }}</li>
+
                                     </div>
                                 </div>
+                                
+                                 <div class="row m-5 jobsection">
+
+                                <div class="col-2 skill p-1 justify-content-sm-end justify-content-sm-end">Key Skills</div>
+                                <div class="col-10 py-2 d-flex ">
+                                    <div
+                                        class="mx-1 d-flex align-items-center justify-content-center py-2 px-4 skilldetail" 
+                                         v-for="technology in job.technology"  :key="technology.name">
+                                        {{ technology.name }}</div>
+                                    
+                                </div>
+                            </div>
+                                
                                 <div class="row m-5 jobsection">
-                                    <div class="row pl-5">
-                                        <div class="col-2 p-1 skill">Key Skills:</div>
-                                        <div class="col-6 p-1 skilldetail">Node.Js, CI/CD, Typescript, NoSql</div>
-                                    </div>
+                                <div class="col-lg-2 col-sm-12 skill p-1 d-flex justify-content-sm-end justify-content-lg-end">Location:</div>
+                                <div class="col-lg-10 col-sm-12 py-2 d-flex ">
+                                    <div
+                                        class="mx-1 d-flex align-items-center justify-content-center py-2 px-4 skilldetail">
+                                        {{ job.location }}</div>
+                                    
                                 </div>
-                                <div class="row m-5 jobsection">
-                                    <div class="row pl-5">
-                                        <div class="col-2 p-1 skill">Key Skills:</div>
-                                        <div class="col-6 p-1 skilldetail">Node.Js, CI/CD, Typescript, NoSql</div>
-                                    </div>
-                                </div>
+                            </div>
                                 <div class="row pl-5">
                                     <div class="col float-end ml-auto">
                                         <router-link to="">
                                             <button class="buttonstyle textalign">
                                                 <div class="">
-                                                    Job Description
+                                                    Apply Now
                                                 </div>
                                             </button>
                                         </router-link>
@@ -109,91 +120,93 @@
                             </div>
                         </div>
                         <footer class="navbar  navbar-expand-lg text-center block9">
-            <div class="row">
-                <div class="col-4 ">
-                    <div class="mercuryContainerfooter">
-                        <div class="block9logoblock">
-                            <img src="../assets/block9logo.png" alt="" class="block9logo col-5" />
-                        </div>
-                        <div class="d-flex">
-                            <div class="">
-                                <a href="https://www.linkedin.com/company/mercuryofficials/" target="_blank">
-                                    <div class="block9circle1 col-1">
-                                        <div class="block9lntxt">in</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="">
-                                <a href="https://www.facebook.com/mercuryofficials/" target="_blank">
-                                    <div class="block9circle2 col-1">
-                                        <div class="block9lntxt">f</div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="">
-                                <a href="https://www.instagram.com/mercuryofficials/" target="_blank">
-                                    <div class="block9circle3 col-1">
-                                        <img src="../assets/insta.png" alt="" class="block9icon" />
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="">
-                                <a href="https://www.linkedin.com/company/mercuryofficials/" target="_blank">
-                                    <div class="block9circle4">
-                                        <img src="../assets/twitter.png" alt="" class="block9icon" />
-                                    </div>
-                                </a>
-                            </div>
+                            <div class="row">
+                                <div class="col-4 ">
+                                    <div class="mercuryContainerfooter">
+                                        <div class="block9logoblock">
+                                            <img src="../assets/block9logo.png" alt="" class="block9logo col-5" />
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="">
+                                                <a href="https://www.linkedin.com/company/mercuryofficials/"
+                                                    target="_blank">
+                                                    <div class="block9circle1 col-1">
+                                                        <div class="block9lntxt">in</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="">
+                                                <a href="https://www.facebook.com/mercuryofficials/" target="_blank">
+                                                    <div class="block9circle2 col-1">
+                                                        <div class="block9lntxt">f</div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="">
+                                                <a href="https://www.instagram.com/mercuryofficials/" target="_blank">
+                                                    <div class="block9circle3 col-1">
+                                                        <img src="../assets/insta.png" alt="" class="block9icon" />
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="">
+                                                <a href="https://www.linkedin.com/company/mercuryofficials/"
+                                                    target="_blank">
+                                                    <div class="block9circle4">
+                                                        <img src="../assets/twitter.png" alt="" class="block9icon" />
+                                                    </div>
+                                                </a>
+                                            </div>
 
-                        </div>
-                        <div class="block9cc">MercurySols © 2022</div>
-                    </div>
-                </div>
-                <div class="col-4 text-white">
-                    <div class="mercuryContainerfooter">
-                        <div class="">
-                            <h1 class="block9contact">Contact Us</h1>
-                        </div>
-                        <div class="row">
-                            <img src="../assets/email.png" alt="" class="block9emailimg1" />
-                            <a href="mailto:hr@mercurysols.org">hr@mercurysols.org</a>
-                        </div>
-                        <div class="row">
-                            <img src="../assets/email.png" alt="" class="block9emailimg2" />
-                            <a href="mailto:info@mercurysols.org">info@mercurysols.org</a>
-                        </div>
-                        <div class="row">
-                            <img src="../assets/phone.png" alt="" class="block9phimg1" />
-                            <a href="tel:+92 300 6777686">+92 300 6777686</a>
-                        </div>
-                        <div class="row">
-                            <img src="../assets/phone2.png" alt="" class="block9phimg2" />
-
-                            <a href="tel:+92 68 5905990">+92 68 5905990</a>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="mercuryContainerfooter">
-                        <div class="">
-                            <img src="../assets/location.png" alt="" class="block9location" />
-                        </div>
-                        <div class="">
-                            <div class="block9locationtxt">
-                                Mercury Sols, Abbasia Town Main Road, Rahim Yar Khan, Punjab 64200,
-                                Pakistan
-                            </div>
-                            <router-link to="/">
-                                <div class="block9button">
-                                    <div class="block9buttontxt">Request A Quote</div>
+                                        </div>
+                                        <div class="block9cc">MercurySols © 2022</div>
+                                    </div>
                                 </div>
-                            </router-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
+                                <div class="col-4 text-white">
+                                    <div class="mercuryContainerfooter">
+                                        <div class="">
+                                            <h1 class="block9contact">Contact Us</h1>
+                                        </div>
+                                        <div class="row">
+                                            <img src="../assets/email.png" alt="" class="block9emailimg1" />
+                                            <a href="mailto:hr@mercurysols.org">hr@mercurysols.org</a>
+                                        </div>
+                                        <div class="row">
+                                            <img src="../assets/email.png" alt="" class="block9emailimg2" />
+                                            <a href="mailto:info@mercurysols.org">info@mercurysols.org</a>
+                                        </div>
+                                        <div class="row">
+                                            <img src="../assets/phone.png" alt="" class="block9phimg1" />
+                                            <a href="tel:+92 300 6777686">+92 300 6777686</a>
+                                        </div>
+                                        <div class="row">
+                                            <img src="../assets/phone2.png" alt="" class="block9phimg2" />
+
+                                            <a href="tel:+92 68 5905990">+92 68 5905990</a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="mercuryContainerfooter">
+                                        <div class="">
+                                            <img src="../assets/location.png" alt="" class="block9location" />
+                                        </div>
+                                        <div class="">
+                                            <div class="block9locationtxt">
+                                                Mercury Sols, Abbasia Town Main Road, Rahim Yar Khan, Punjab 64200,
+                                                Pakistan
+                                            </div>
+                                            <router-link to="/">
+                                                <div class="block9button">
+                                                    <div class="block9buttontxt">Request A Quote</div>
+                                                </div>
+                                            </router-link>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
                     </div>
                 </div>
             </div>
@@ -215,9 +228,32 @@ export default {
     data() {
         return {
             errors: [],
-
+            result: "",
+            responseAvailable: false,
         };
     },
+    mounted: function () {
+        this.getjobs();
+    },
+    methods: {
+        getjobs() {
+            this.axios.get('http://127.0.0.1:8000/JobsAPI/')
+                .then((response) => {
+                    if (response.statusText = "OK") {
+                        console.log(response.data)
+                        this.responseAvailable = true
+                        this.result = response.data;
+                        // return response.json()
+                    } else {
+                        console.log("Server Returned " + response.status + ":" + response.statusText);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error)
+                })
+        }
+
+    }
 };
 
 </script>
@@ -328,6 +364,18 @@ export default {
     line-height: 38px;
 
     color: #323232;
+}
+
+.skilldetail {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-align: center;
+    color: #FFFFFF;
+    background: #928F8F;
+    border-radius: 5px;
 }
 
 .block9 {
